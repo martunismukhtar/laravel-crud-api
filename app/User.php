@@ -39,12 +39,14 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail {
         'email_verified_at' => 'datetime',
     ];
     
-    public function getJWTIdentifier()
-    {
+    public function getJWTIdentifier() {
         return $this->getKey();
     }
-    public function getJWTCustomClaims()
-    {
+    public function getJWTCustomClaims() {
         return [];
     }
+    
+//    public function sendEmailVerificationNotification($token, $expiration) {
+//        $this->notify(new MyEmailVerificationNotification($token, $expiration));
+//    }
 }
